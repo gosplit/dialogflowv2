@@ -12,11 +12,19 @@ The code for the node was forked and slightly simplified. Thank you very much [g
 
 Install latest release: `npm i -g node-red-contrib-dialogflowv2-api`
 
+### Action modes
+  - `detectIntent`
+    requst for NLP
+  - `batchUpdateEntities`
+    request to update entity on Dialogflow.com
+
 ### Inputs
 
-`msg.payload` *string*
-
-The text of our request for NLP
+  `msg.payload` *string* or *array*
+   - requires to be a *string* in `detectIntent` mode, contains the text of our request for NLP. 
+    for example, *"May I have a cup of coffee today?"*
+   - requires to be an *array* in `batchUpdateEntities` mode, contains the array of entities. 
+    for example, `[{ value: "kitty", synonyms: [ "kitty", "small cat" ]}, { value: "puppy", synonyms: [ "puppy", "small dog" ]}]`
 
 ### Outputs
 
